@@ -1,0 +1,458 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --honey-pink: #FF2E93;
+    --honey-bg: #08080C;
+    --honey-surface: #111118;
+    --honey-border: #242432;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #08080C;
+    color: #FFFFFF;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-strong {
+    font-family: 'Outfit', 'Syne', sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d14;
+}
+::-webkit-scrollbar-thumb {
+  background: #29293a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF2E93;
+}
+
+/* =========================================================
+   RICH TEXT EDITOR & ARTICLE PROSE TYPOGRAPHY (.jmh-prose)
+   ========================================================= */
+.jmh-prose,
+.ProseMirror {
+  line-height: 1.8;
+  font-size: 1.075rem;
+  word-wrap: break-word;
+  outline: none;
+}
+
+.ProseMirror {
+  min-height: 540px;
+  padding-bottom: 6rem;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #6b7280;
+  pointer-events: none;
+  height: 0;
+}
+
+.jmh-prose h1, .ProseMirror h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.jmh-prose h2, .ProseMirror h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.28;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.jmh-prose h3, .ProseMirror h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 1.65rem;
+  margin-bottom: 0.65rem;
+}
+
+.jmh-prose h4, .ProseMirror h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.jmh-prose h5, .ProseMirror h5 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.jmh-prose h6, .ProseMirror h6 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 1.1rem;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #FF2E93;
+}
+
+.jmh-prose p, .ProseMirror p {
+  margin-bottom: 1.25rem;
+}
+
+.jmh-prose ul, .ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.65rem;
+  margin-bottom: 1.35rem;
+}
+
+.jmh-prose ul ul, .ProseMirror ul ul {
+  list-style-type: circle;
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.jmh-prose ol, .ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.65rem;
+  margin-bottom: 1.35rem;
+}
+
+.jmh-prose li, .ProseMirror li {
+  margin-bottom: 0.4rem;
+}
+
+.jmh-prose blockquote, .ProseMirror blockquote {
+  border-left: 4px solid #FF2E93;
+  padding: 1rem 1.35rem;
+  margin: 1.6rem 0;
+  background: rgba(255, 46, 147, 0.07);
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+}
+
+.jmh-prose a, .ProseMirror a {
+  color: #FF2E93;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.jmh-prose a:hover, .ProseMirror a:hover {
+  color: #ff69b4;
+}
+
+.jmh-prose hr, .ProseMirror hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin: 2.25rem 0;
+}
+
+.editor-light .ProseMirror hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.jmh-prose code, .ProseMirror code {
+  background: rgba(255, 46, 147, 0.14);
+  color: #ff69b4;
+  padding: 0.18rem 0.42rem;
+  border-radius: 0.35rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+}
+
+.editor-light .ProseMirror code {
+  background: rgba(255, 46, 147, 0.12);
+  color: #c8106b;
+}
+
+.jmh-prose pre, .ProseMirror pre {
+  background: #0b0b12;
+  color: #f8f8f2;
+  padding: 1.15rem 1.35rem;
+  border-radius: 0.85rem;
+  border: 1px solid #252538;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.jmh-prose pre code, .ProseMirror pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Tables */
+.jmh-prose table, .ProseMirror table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.editor-light .ProseMirror table {
+  border: 1px solid #d1d5db;
+}
+
+.jmh-prose th, .ProseMirror th {
+  background: rgba(255, 46, 147, 0.14);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.editor-light .ProseMirror th {
+  background: #fce7f3;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.jmh-prose td, .ProseMirror td {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: top;
+}
+
+.editor-light .ProseMirror td {
+  border: 1px solid #e5e7eb;
+}
+
+/* Callout Boxes */
+.jmh-callout {
+  padding: 1.15rem 1.35rem;
+  border-radius: 0.9rem;
+  margin: 1.6rem 0;
+  border: 1px solid rgba(255, 46, 147, 0.35);
+  background: rgba(255, 46, 147, 0.08);
+}
+
+.jmh-callout-tip {
+  border-color: rgba(255, 46, 147, 0.45);
+  background: rgba(255, 46, 147, 0.09);
+}
+
+.jmh-callout-note {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.09);
+}
+
+.jmh-callout-warning {
+  border-color: rgba(251, 191, 36, 0.45);
+  background: rgba(251, 191, 36, 0.09);
+}
+
+.jmh-callout-hack {
+  border-color: rgba(52, 211, 153, 0.45);
+  background: rgba(52, 211, 153, 0.09);
+}
+
+.jmh-callout-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+/* CTA Buttons inside content */
+.jmh-cta-wrapper {
+  margin: 1.85rem 0;
+}
+
+.jmh-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: 9999px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.jmh-cta-pink {
+  background: #FF2E93;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px -6px rgba(255, 46, 147, 0.55);
+}
+
+.jmh-cta-pink:hover {
+  background: #ff4da2;
+  transform: translateY(-1px);
+}
+
+.jmh-cta-outline {
+  background: transparent;
+  color: #FF2E93 !important;
+  border: 2px solid #FF2E93;
+}
+
+.jmh-cta-outline:hover {
+  background: rgba(255, 46, 147, 0.12);
+}
+
+.jmh-cta-white {
+  background: #ffffff;
+  color: #08080C !important;
+}
+
+/* Custom Figures & Image Alignment */
+figure.jmh-figure {
+  margin: 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+figure.jmh-figure[data-align="center"] {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure.jmh-figure[data-align="left"] {
+  align-items: flex-start;
+}
+
+figure.jmh-figure[data-align="right"] {
+  align-items: flex-end;
+}
+
+figure.jmh-figure img {
+  border-radius: 0.85rem;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+figure.jmh-figure figcaption {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Gallery Grid */
+.jmh-gallery {
+  display: grid;
+  gap: 1rem;
+  margin: 1.85rem 0;
+}
+.jmh-gallery[data-cols="2"] {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.jmh-gallery[data-cols="3"] {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.jmh-gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Video & Social Embeds */
+.jmh-embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  margin: 1.75rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0d0d14;
+}
+
+.jmh-embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.jmh-social-card {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin: 1.6rem 0;
+}
+
+.editor-light .jmh-social-card {
+  border-color: #e5e7eb;
+  background: #f9fafb;
+}
+
+/* Lowlight Syntax Highlighting */
+.hljs-comment,
+.hljs-quote {
+  color: #6272a4;
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #ff79c6;
+}
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #50fa7b;
+}
+.hljs-number,
+.hljs-regexp,
+.hljs-meta {
+  color: #bd93f9;
+}
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-params {
+  color: #8be9fd;
+}
